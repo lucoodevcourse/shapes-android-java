@@ -72,7 +72,7 @@ public class TestDraw {
 		inOrder.verify(canvas).drawRect(0, 0, 50, 30, paint);
 		inOrder.verify(paint).setStyle(Style.STROKE);
 		inOrder.verify(canvas).drawRect(0, 0, 300, 60, paint);
-		inOrder.verify(paint).setStyle(any(Style.class));
+		inOrder.verify(paint).setStyle(nullable(Style.class));
 		inOrder.verify(paint).setColor(Color.BLUE);
 		inOrder.verify(canvas).drawLines((float[]) any(), eq(paint));
 		inOrder.verify(paint).setColor(anyInt());
@@ -80,10 +80,10 @@ public class TestDraw {
 		inOrder.verify(paint).setColor(Color.MAGENTA);
 		inOrder.verify(paint).setStyle(Style.STROKE);
 		inOrder.verify(canvas).drawCircle(0, 0, 50, paint);
-		inOrder.verify(paint).setStyle(any(Style.class));
+		inOrder.verify(paint).setStyle(nullable(Style.class));
 		inOrder.verify(paint).setColor(anyInt());
 		inOrder.verify(canvas).translate(-100, -200);
-		inOrder.verify(paint).setStyle(any(Style.class));
+		inOrder.verify(paint).setStyle(nullable(Style.class));
 		inOrder.verify(paint).setColor(anyInt());
 		inOrder.verify(canvas).translate(-150, -50);
 		inOrder.verify(canvas).translate(-50, -100);
