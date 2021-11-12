@@ -23,8 +23,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testCircle() {
-		final Location b = new Circle(50).accept(v);
-		final Rectangle r = (Rectangle) b.getShape();
+		final var b = new Circle(50).accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(-50, b.getX());
 		assertEquals(-50, b.getY());
 		assertEquals(100, r.getWidth());
@@ -33,8 +33,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testRectangle() {
-		final Location b = new Rectangle(80, 120).accept(v);
-		final Rectangle r = (Rectangle) b.getShape();
+		final var b = new Rectangle(80, 120).accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(0, b.getX());
 		assertEquals(0, b.getY());
 		assertEquals(80, r.getWidth());
@@ -43,8 +43,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testLocation() {
-		final Location b = simpleLocation.accept(v);
-		final Rectangle r = (Rectangle) b.getShape();
+		final var b = simpleLocation.accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(70, b.getX());
 		assertEquals(30, b.getY());
 		assertEquals(80, r.getWidth());
@@ -53,8 +53,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testFilled() {
-		final Location b = simpleFill.accept(v);
-		final Rectangle r = (Rectangle) b.getShape();
+		final var b = simpleFill.accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(0, b.getX());
 		assertEquals(0, b.getY());
 		assertEquals(80, r.getWidth());
@@ -63,8 +63,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testStrokeColor() {
-		final Location b = simpleStrokeColor.accept(v);
-		final Rectangle r = (Rectangle) b.getShape();
+		final var b = simpleStrokeColor.accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(0, b.getX());
 		assertEquals(0, b.getY());
 		assertEquals(80, r.getWidth());
@@ -73,8 +73,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testGroupSimple() {
-		Location b = simpleGroup.accept(v);
-		Rectangle r = (Rectangle) b.getShape();
+		final var b = simpleGroup.accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(150, b.getX());
 		assertEquals(50, b.getY());
 		assertEquals(350, r.getWidth());
@@ -83,8 +83,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testGroupComplex() {
-		final Location b = complexGroup.accept(v);
-		final Rectangle r = (Rectangle) b.getShape();
+		final var b = complexGroup.accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(30, b.getX());
 		assertEquals(80, b.getY());
 		assertEquals(470, r.getWidth());
@@ -93,8 +93,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testOutline() {
-		final Location b = simpleOutline.accept(v);
-		final Rectangle r = (Rectangle) b.getShape();
+		final var b = simpleOutline.accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(0, b.getX());
 		assertEquals(0, b.getY());
 		assertEquals(80, r.getWidth());
@@ -103,8 +103,8 @@ public class TestBoundingBox {
 
 	@Test
 	public void testPolygon() {
-		final Location b = simplePolygon.accept(v);
-		final Rectangle r = (Rectangle) b.getShape();
+		final var b = simplePolygon.accept(v);
+		final var r = (Rectangle) b.getShape();
 		assertEquals(50, b.getX());
 		assertEquals(50, b.getY());
 		assertEquals(70, r.getWidth());
