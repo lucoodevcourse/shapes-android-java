@@ -1,13 +1,19 @@
 apply plugin: 'com.android.application'
 
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
 android {
-    compileSdkVersion 30
-    buildToolsVersion "31.0.0"
+    compileSdkVersion 36
+    buildToolsVersion "36.0.0"
 
     defaultConfig {
         applicationId "edu.luc.etl.cs313.android.shapes"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -21,18 +27,37 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            enableUnitTestCoverage true
+            enableAndroidTestCoverage true
+        }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     testOptions {
         unitTests.returnDefaultValues = true
     }
+    namespace 'edu.luc.etl.cs313.android.shapes.android'
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13'
-    testImplementation 'org.mockito:mockito-core:3.5.13'
+    implementation 'com.android.support:support-annotations:28.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:5.18.0'
+    testImplementation 'org.objenesis:objenesis:3.4'
+    testImplementation 'org.mockito:mockito-inline:5.2.0'
+}
+
+tasks.register('javadoc', Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+afterEvaluate {
+    javadoc.classpath += files(android.applicationVariants.collect { variant ->
+        variant.javaCompileProvider.get().classpath.files
+    })
 }
 

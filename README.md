@@ -13,27 +13,26 @@
 
 # Setting up the Environment
 
-Check out the project using Android Studio. This creates the `local.properties` file
+Check out the project using IntelliJ IDEA. This creates the `local.properties` file
 with the required line
 
     sdk.dir=<root folder of Android Studio's Android SDK installation>
 
 # Running the Application
 
-In Android Studio: `Run > Run app`
+In IntelliJ: `Run > Run app`
 
 # Running the Tests
 
-## Unit tests
+## Unit tests (there are no Android tests for shapes)
 
-In Android Studio:
+In IntelliJ's Project view:
 
-* right-click on `app/java/edu...shapes (test)`, then choose `Run Tests in edu...`
+* right-click on `app/java/edu...shapes test (unitTest)`, then choose `Run Tests in shapes...`
 
 You can also use Gradle in a Terminal window:
 
-    $ gradlew testDebug   # on a Windows PC
-    $ ./gradlew testDebug # on a Mac or Linux PC
+    $ ./gradlew testDebug # on all platforms
 
 You can view the resulting test reports in HTML by opening this file in your browser:
 
